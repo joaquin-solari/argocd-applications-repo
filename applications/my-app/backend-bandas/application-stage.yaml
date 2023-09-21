@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: argo-backend-bandas-dev
+  name: argo-backend-bandas-stage
   namespace: argocd
   finalizers:
     - resources-finalizer.argocd.argoproj.io
@@ -12,10 +12,10 @@ spec:
     path: backend-bandas
     helm:
       valueFiles:
-         - environments/values-dev.yaml
+        - environments/values-stage.yaml
   destination:
     server: https://kubernetes.default.svc
-    namespace: backend-bandas-dev
+    namespace: backend-bandas-stage 
   syncPolicy:
     syncOptions:
     - CreateNamespace=true

@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: argo-backend-bandas-dev
+  name: argo-backend-bandas-prod
   namespace: argocd
   finalizers:
     - resources-finalizer.argocd.argoproj.io
@@ -11,11 +11,11 @@ spec:
     repoURL: https://github.com/joaquin-solari/infra-repo.git
     path: backend-bandas
     helm:
-      valueFiles:
-         - environments/values-dev.yaml
+      valueFiles: 
+         - environments/values-prod.yaml
   destination:
     server: https://kubernetes.default.svc
-    namespace: backend-bandas-dev
+    namespace: backend-bandas-prod
   syncPolicy:
     syncOptions:
     - CreateNamespace=true
