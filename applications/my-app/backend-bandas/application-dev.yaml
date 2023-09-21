@@ -9,7 +9,7 @@ spec:
   project: default
   source:
     repoURL: https://github.com/joaquin-solari/infra-repo.git
-    path: backend
+    path: backend-bandas
     helm:
       valueFiles:
          - environments/values-dev.yaml
